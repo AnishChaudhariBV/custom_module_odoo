@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited Sale Order Form View -->
+        <record id="view_order_form_inherit_my" model="ir.ui.view">
+            <field name="name">sale.order.form.my</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_code']" position="before">
+                    <field name="check_date"/>
+                    <field name="nick_name"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='tax_id']"
+                       position="after">
+                    <field name="custom_name"/>
+                </xpath>
+                <xpath expr="//form/header/button[@name='action_cancel']" position="after">
+                    <button name="action_print_report" type="object" string='Print'/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='tax_id']"
+                       position="before">
+                    <field name="is_available"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherited Stock Picking Form View -->
+        <record id="_stock_form_view" model="ir.ui.view">
+            <field name="name">stock.picking.form.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_deadline']" position="before">
+                    <field name="nick_name"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='operations']/field[@name='move_ids_without_package']/tree/field[@name='product_uom_qty']"
+                       position="after">
+                    <field name="custom_name" string="Custom Name"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

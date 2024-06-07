@@ -1,0 +1,192 @@
+<odoo>
+    <data>
+
+        <!-- Property Form View -->
+        <record id="custom_property_list_form" model="ir.ui.view">
+            <field name="name">custom_property_list.form.view</field>
+            <field name="model">property.list</field>
+            <field name="arch" type="xml">
+                <form string="Property">
+                    <header>
+                        <button name='save' string="Save" type="object" class="oe_highlight"/>
+
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_property_list" type="object"
+                                    class="oe_stat_button" icon="fa-building">
+                                <div class="o_stat_info">
+                                    <span class="o_stat_text">
+                                        <field name="listed_property_count" class="o_stat_value"/>
+                                    </span>
+
+                                </div>
+                            </button>
+                        </div>
+
+                        <notebook>
+                            <!-- First Page in Notebook -->
+                            <page string="General Information">
+                                <group>
+                                    <group>
+
+
+                                        <field name="property_type"/>
+                                        <field name="name"/>
+                                        <field name="address"/>
+                                        <field name="description"/>
+                                        <field name="price"/>
+
+
+                                    </group>
+                                    <group>
+                                        <field name="property_size"/>
+                                        <field name="availability_status"/>
+
+                                        <field name="bedrooms"/>
+                                        <field name="bathrooms"/>
+                                        <field name="floor_plan"/>
+                                        <field name="images"/>
+                                        <field name="date_listed"/>
+                                        <field name="property_id"/>
+
+                                    </group>
+                                </group>
+                            </page>
+                            <!-- Second Page in Notebook -->
+                            <page string="Contact Information">
+                                <group>
+                                    <field name="contact_name"/>
+                                    <field name="contact_phone"/>
+                                    <field name="contact_email"/>
+                                    <field name="additional_details"/>
+
+                                    <button name='Check_wiz' string="Open_wizard" type="object" class="oe_highlight"/>
+
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Property Tree View -->
+        <record id="custom_property_list_tree" model="ir.ui.view">
+            <field name="name">custom_property_list.tree.view</field>
+            <field name="model">property.list</field>
+            <field name="arch" type="xml">
+
+                <tree string="Property">
+
+                    <field name="property_type"/>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="description"/>
+                    <field name="price"/>
+                    <!--                    <field name="currency_id"/>-->
+                    <field name="availability_status"/>
+
+                    <field name="date_listed"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="custom_property_kanban_view" model="ir.ui.view">
+            <field name="name">custom.property.kanban.view</field>
+            <field name="model">property.list</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="price"/>
+                    <field name="images"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click d-flex">
+
+                                <div>
+                                    <img alt="Avatar"
+                                         t-att-src="kanban_image('property.list','images',record.id.raw_value)"
+                                         style="margin-right:20px;width:100px;height:100pxx"/>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <ul>
+                                        <li>
+                                            <strong>Address:</strong>
+                                            <field name="address"/>
+                                        </li>
+                                        <li>
+                                            <strong>
+                                                <field name="name"/>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            <strong>Price:</strong>
+                                            <field name="price"/>
+
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_property_list_search" model="ir.ui.view">
+            <field name="name">property.list.search.view</field>
+            <field name="model">property.list</field>
+            <field name="arch" type="xml">
+                <search string="Search Property">
+                    <!-- Search fields -->
+                    <field name="name" string="Property Name"/>
+                    <field name="address" string="Address"/>
+                    <field name="price" string="Price"/>
+                    <field name="property_type" string="Property Type"/>
+
+
+                    <!-- Filters -->
+                    <filter string="Available Properties" name="available"
+                            domain="[('availability_status', '=', 'available')]"/>
+                    <filter string="Under Contract Properties" name="under_contract"
+                            domain="[('availability_status', '=', 'under_contract')]"/>
+                    <filter string="Rented Properties" name="rented"
+                            domain="[('availability_status', '=', 'rented')]"/>
+                    <group string="Group by">
+                        <filter name="property_type" string="Property Types" context="{'group_by': 'property_type'}"/>
+                    </group>
+
+
+                    <searchpanel>
+                        <field name="property_type" string="Property types" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- Property Menu Action -->
+        <record id="custom_property_list_action_id" model="ir.actions.act_window">
+            <field name="name">Property Listing</field>
+            <field name="res_model">property.list</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_available':1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">There are no records for property.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

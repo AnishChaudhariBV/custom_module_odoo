@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="property_price_update_wizard_form" model="ir.ui.view">
+            <field name="name">property.price.update.wizard_form</field>
+            <field name="model">update.price</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="property_id"/>
+                            <field name="price"/>
+                            <field name="diff"/>
+                            <field name="new_price"/>
+
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button string="Update Price" name="update_price" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_update_property_price" model="ir.actions.act_window">
+            <field name="name">Update Property Price</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">update.price</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="custom_property_list_main_menu" name="Property Management"
+                  web_icon="PMS,/home/anish_chaudhari/workspace/odoo_17/odoo/custom/PMS/static/description/icon.png"/>
+
+        <menuitem id="custom_property_list_submenu" name="Property Listing" parent="custom_property_list_main_menu"
+                  action="custom_property_list_action_id"/>
+        <menuitem id="custom_property_inquiry_submenu" name="Property inquiry" parent="custom_property_list_main_menu"
+                  action="custom_property_inquiry_action_property"/>
+        <menuitem id="custom_add_inquiry_submenu" name="Add inquiry" parent="custom_property_inquiry_submenu"
+                  action="custom_property_inquiry_action_property" sequence='10'/>
+        <menuitem id="custom_cancel_inquiry_submenu" name="Cancel inquiry" parent="custom_property_inquiry_submenu"
+                  action="action_property_inquiry_cancellation" sequence='20'/>
+        <menuitem id="custom_progress_inquiry_submenu" name="Progress status" parent="custom_property_list_main_menu"
+                  action="progress_property_action_id" sequence='20'/>
+        <menuitem id="custom_customer_inquiry_submenu" name="property inquiry status"
+                  parent="custom_progress_inquiry_submenu" action="progress_property_action_id" sequence='20'/>
+        <menuitem id="custom_property_list_progress_submenu" name="Property list status"
+                  parent="custom_progress_inquiry_submenu" action="property_list_progress_action_id" sequence='10'/>
+        <menuitem id="custom_property_Buyer_progress_submenu" name="Property Buyer status"
+                  parent="custom_property_list_main_menu" action="action_property_purchase_id" sequence='10'/>
+        <menuitem id="menu_sale_reports_graph_action" name="Graph View" parent="custom_property_list_main_menu"
+                  action="action_sale_reports_graph"/>
+
+
+    </data>
+</odoo>

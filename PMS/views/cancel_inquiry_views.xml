@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="view_property_inquiry_cancellation_form" model="ir.ui.view">
+                    <field name="name">property.inquiry.cancellation.form</field>
+                    <field name="model">property.inquiry.cancellation</field>
+                    <field name="arch" type="xml">
+                        <form string="Cancel Inquiry">
+                            <header>
+                                 <button name = 'save' string="Save" type="object" class="oe_highlight"/>
+                            </header>
+                            <sheet>
+                                <group>
+                                    <field name="inquiry_id"/>
+                                    <field name="reason" widget="text" placeholder="Reason for cancellation..."/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </record>
+       <record id="view_property_inquiry_cancellation_tree" model="ir.ui.view">
+                    <field name="name">property.inquiry.cancellation.form</field>
+                    <field name="model">property.inquiry.cancellation</field>
+                    <field name="arch" type="xml">
+                        <tree string="Cancel Inquiry">
+
+
+                                    <field name="inquiry_id"/>
+                                    <field name="reason" widget="text" placeholder="Reason for cancellation..."/>
+
+
+                        </tree>
+                    </field>
+                </record>
+                <!-- Action for opening property inquiry cancellation form -->
+                <record id="action_property_inquiry_cancellation" model="ir.actions.act_window">
+                    <field name="name">Cancel Inquiry</field>
+                    <field name="res_model">property.inquiry.cancellation</field>
+                    <field name="view_mode">tree,form</field>
+                </record>
+
+    </data>
+</odoo>

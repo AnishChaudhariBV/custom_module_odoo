@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_excel_report_form" model="ir.ui.view">
+            <field name="name">excel_report_form</field>
+            <field name="model">excel.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <footer>
+                            <button name="print_report" type="object" string="Print Report"  class="oe_highlight"/>
+                             <button string="Discard" special="cancel"/>
+                        </footer>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="sale_excel_report_action" model="ir.actions.act_window">
+            <field name="name">Print Excel report</field>
+            <field name="res_model">excel.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sale_excel_report_form"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="sale_excel_menu" name="Sale Excel Report" parent="sale.menu_sale_report"
+                  action="sale_excel_report_action" sequence='80'/>
+    </data>
+</odoo>

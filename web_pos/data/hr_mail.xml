@@ -1,0 +1,78 @@
+<data noupdate="0">
+    <record id="email_template_id" model="mail.template">
+        <field name="name">Hr Expense Notification Email Template</field>
+        <field name="model_id" ref="hr_expense.model_hr_expense"/>
+        <field name="subject">Expense Notification Email</field>
+        <field name="email_from">{{ user.email }}</field>
+        <field name="email_to">{{ object.employee_id.work_email }}</field>
+        <field name="body_html" type="html">
+            <html>
+                <head>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .container {
+                            max-width: 600px;
+                            margin: 20px auto;
+                            padding: 20px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                        }
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-bottom: 20px;
+                        }
+                        th, td {
+                            padding: 10px;
+                            border-bottom: 1px solid #ddd;
+                            text-align: left;
+                        }
+                        th {
+                            background-color: #f2f2f2;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h2>Notification!</h2>
+                        <p>Dear <t t-out="object.employee_id.name"/>,</p>
+                        <p>This is a notification regarding your expense report with the reference:</p>
+                        <table>
+                            <tr>
+                                <th>Expense Date</th>
+                                <td><t t-out="object.date"/></td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td><t t-out="object.name"/></td>
+                            </tr>
+                            <tr>
+                                <th>Payment Mode</th>
+                                <td><t t-out="object.payment_mode"/></td>
+                            </tr>
+                            <tr>
+                                <th>Company</th>
+                                <td><t t-out="object.company_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <th>Total Amount</th>
+                                <td><t t-out="object.total_amount"/></td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td><t t-out="object.state"/></td>
+                            </tr>
+                        </table>
+                        <p>Please review the details and take the necessary actions.</p>
+                        <p>Thank you!</p>
+                    </div>
+                </body>
+            </html>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</data>

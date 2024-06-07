@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_sale_commission" name="Commission" parent="sale.sale_menu_root"
+                 sequence='60'/>
+        <menuitem id="sale_commission" name="Commission" parent="menu_sale_commission"
+                  action="action_sale_commission" sequence='70'/>
+        <menuitem id="sale_commission_on_line" name="Commission on line" parent="menu_sale_commission"
+                  action="action_sale_commission_on_line" sequence='80'/>
+
+    </data>
+</odoo>

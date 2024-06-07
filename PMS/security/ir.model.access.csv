@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_property_list,custom property list,model_property_list,base.group_user,1,1,1,1
+access_custom_property_add_inquiry,custom property add inquiry,model_property_inquiry,base.group_user,1,1,1,1
+access_custom_property_cancel_inquiry,custom property cancel  inquiry,model_property_inquiry_cancellation,base.group_user,1,1,1,1
+access_custom_progress_status,custom progress status,model_progress_status,base.group_user,1,1,1,1
+access_custom_property_list_progress_status,custom property list progress status,model_list_progress,base.group_user,1,1,1,1
+access_custom_property_update_price,custom update price ,model_update_price,base.group_user,1,1,1,1
+access_custom_sale_reports,custom sale.reports ,model_sale_reports,base.group_user,1,1,1,1
+
+
+
+
+

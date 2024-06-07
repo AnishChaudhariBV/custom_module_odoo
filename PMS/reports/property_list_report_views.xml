@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+    
+        <!-- Report Template -->
+            <template id="property_list_report">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                <!-- Main Content -->
+                                <div class="main-content">
+                                    <h2>Property Details</h2>
+                                    <table class="property-details">
+                                        <tr>
+                                            <td>Property Type:</td>
+                                            <td><t t-esc="doc.property_type"/></td>
+                                            <td>Name:</td>
+                                            <td><t t-esc="doc.name"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address:</td>
+                                            <td><t t-esc="doc.address"/></td>
+                                            <td>Description:</td>
+                                            <td><t t-esc="doc.description"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price/Rent:</td>
+                                            <td><t t-esc="doc.price"/></td>
+                                            <td>Property Size/Area:</td>
+                                            <td><t t-esc="doc.property_size"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <!-- Contact Information -->
+                                <div class="contact-info">
+                                    <h2>Contact Information</h2>
+                                    <table class="contact-details">
+                                        <tr>
+                                            <td>Number of Bedrooms:</td>
+                                            <td><t t-esc="doc.bedrooms"/></td>
+                                            <td>Number of Bathrooms:</td>
+                                            <td><t t-esc="doc.bathrooms"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Availability Status:</td>
+                                            <td><t t-esc="doc.availability_status"/></td>
+                                            <td>Contact Name:</td>
+                                            <td><t t-esc="doc.contact_name"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contact Phone:</td>
+                                            <td><t t-esc="doc.contact_phone"/></td>
+                                            <td>Contact Email:</td>
+                                            <td><t t-esc="doc.contact_email"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Additional Details:</td>
+                                            <td colspan="3"><t t-esc="doc.additional_details"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date Listed:</td>
+                                            <td><t t-esc="doc.date_listed"/></td>
+                                            <td>Property ID/Reference Number:</td>
+                                            <td><t t-esc="doc.property_id"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+    </data>
+
+     <!-- Report Action -->
+      
+        <record id="action_property_list_report_id" model="ir.actions.report">
+            <field name="name">property listing report</field>
+            <field name="model">property.list</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">PMS.property_list_report</field>
+            <field name="report_file">PMS.property_list_report</field>
+            <field name="binding_model_id" ref="model_property_list"/>
+            <field name="binding_type">report</field>
+        </record>
+</odoo>

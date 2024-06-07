@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="report_property_purchase">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1>Property Purchase Report</h1>
+
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Buyers ID</th>
+                                        <th>Buyer</th>
+                                        <th>Property</th>
+                                        <th>Property Price</th>
+                                        <th>Purchase Price</th>
+                                        <th>Purchase Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span t-field="o.sequence_no"/></td>
+                                        <td><span t-field="o.name"/></td>
+                                        <td><span t-field="o.property_id.name"/></td>
+                                        <td><span t-field="o.property_price"/></td>
+                                        <td><span t-field="o.purchase_price"/></td>
+                                        <td><span t-field="o.purchase_date"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="new_custom_report_saleorder_document_inherit_sale_stock" inherit_id="sale.report_saleorder_document">
+                    <xpath expr="//t[@t-call='web.external_layout']/t[@t-set='address']/div[@t-field='doc.partner_id']" position="before">
+                       <strong>Nick Name : </strong><span t-field="doc.nick_name"/>
+                    </xpath>
+                    <xpath expr="//div/table/thead/tr/th[@name='th_description']" position="after">
+                        <th name="th_customname" class="text-end">Custom Name</th>
+                    </xpath>
+                    <xpath expr="//div/table/tbody/t/tr/t[@t-if='not line.display_type']/td[@name='td_name']" position="after">
+                        <td name="th_customname" class="text-end"><span t-esc="line.custom_name"/></td>
+                    </xpath>
+        </template>
+   
+
+        <record id="action_buyers_report_id" model="ir.actions.report">
+            <field name="name">property purchase</field>
+            <field name="model">property.purchase</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">PMS.report_property_purchase</field>
+            <field name="report_file">PMS.report_property_purchase</field>
+            <field name="binding_model_id" ref="model_property_purchase"/>
+            <field name="binding_type">report</field>
+        </record>
+
+          
+
+    </data>
+</odoo>

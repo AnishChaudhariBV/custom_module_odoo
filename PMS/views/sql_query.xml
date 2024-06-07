@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Define the graph view -->
+        <record id="view_sale_reports_graph" model="ir.ui.view">
+            <field name="name">sale.reports.graph</field>
+            <field name="model">sale.reports</field>
+            <field name="arch" type="xml">
+                <graph string="Sale Reports Graph" type="bar">
+                    <!-- Define fields to be displayed on the graph -->
+                    <field name="property_type" type="row"/>
+                    <field name="price" type="measure"/>
+                    <field name="property_size" type="measure"/>
+                    <field name="listed_property_count" type="measure"/>
+
+                    <!-- Apply domain to filter records with price greater than 5000 -->
+                </graph>
+            </field>
+        </record>
+
+        <!-- Define the action to open the graph view -->
+        <record id="action_sale_reports_graph" model="ir.actions.act_window">
+            <field name="name">Sale Reports Graph</field>
+            <field name="res_model">sale.reports</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_sale_reports_graph"/>
+        </record>
+
+        <!-- Define the menu item to access the graph view -->
+
+    </data>
+</odoo>

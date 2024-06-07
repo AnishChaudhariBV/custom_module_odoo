@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_wiz_report,custom wiz report,model_wiz_report,base.group_user,1,1,1,1
+access_sale_commisiion,sale commision,model_sale_commission,base.group_user,1,1,1,1
+access_sale_commission_line,sale commission line,model_sale_commission_line,base.group_user,1,1,1,1
+access_excel_report, excel report,model_excel_report,base.group_user,1,1,1,1
+access_birthday_reminder, birthday reminder,model_birthday_reminder,base.group_user,1,1,1,1
+
+
+

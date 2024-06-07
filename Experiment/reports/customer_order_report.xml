@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="customer_sale_qweb_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="partner">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div>
+                                <h2 style="font-size: 20px; margin-bottom: 20px;">
+                                    Customer Name: <span t-field="partner.name"/>
+                                </h2>
+                                <div style="margin-bottom: 20px;">
+                                    <div style="display: inline-block; margin-right: 20px;">
+                                        <strong>Total Orders:</strong>
+                                        <span t-field="partner.sale_order_count"/>
+                                    </div>
+                                    <div style="display: inline-block; margin-right: 100px;">
+                                        <strong>Total Amount:</strong>
+                                        <span t-field="partner.total"/>
+                                    </div>
+                                </div>
+                                <hr style="border-top: 1px solid #000; margin-bottom: 20px;"/>
+                                <table class="table table-bordered table-hover mt-4">
+                                    <thead style="background-color: #f2f2f2;">
+                                        <tr>
+                                            <th class="text-center">Order Name</th>
+                                            <th class="text-center">Order Date</th>
+                                            <th class="text-center">Total Amount</th>
+                                            <th class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="partner.sale_ids" t-as="sale">
+                                            <tr>
+                                                <td><span t-field="sale.name"/></td>
+                                                <td class="text-center"><span t-field="sale.date_order"/></td>
+                                                <td class="text-right"><span t-field="sale.amount_total"/></td>
+                                                <td class="text-center"><span t-field="sale.invoice_status"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_customer_sale_qweb_report_id" model="ir.actions.report">
+            <field name="name">Customer Order Report</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">Experiment.customer_sale_qweb_report_template</field>
+            <field name="report_file">Experiment.customer_sale_qweb_report_template</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

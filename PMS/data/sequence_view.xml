@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define a new sequence -->
+    <record id="sequence_no_for_buyer" model="ir.sequence">
+        <field name="name">Buyers sequence no</field>
+        <field name="code">buyer.sequence</field>
+           <field name="padding">4</field>
+        <field name="prefix">BY</field>
+    </record>
+    <!-- Define a new sequence -->
+    <record id="sequence_no_for_inquiry" model="ir.sequence">
+        <field name="name">inquiry sequence no</field>
+        <field name="code">inquiry.sequence</field>
+           <field name="padding">4</field>
+        <field name="prefix">INQ</field>
+    </record>
+</odoo>

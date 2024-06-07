@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--&lt;!&ndash;         Progress Form View &ndash;&gt;-->
+        <record id="view_list_progress_form" model="ir.ui.view">
+            <field name="name">list_progress_form</field>
+            <field name="model">list.progress</field>
+            <field name="arch" type="xml">
+                <form string="Property Progress">
+                    <header>
+                        <field name="progress_stage" widget="statusbar" options="{'clickable':'1'}"/>
+                        <button name='save' string="Save" type="object" class="oe_save_button"/>
+                        <button name=" %(custom_property_list_action_id)d" string="Confirm" type="action"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="property_id"/>
+                            <field name="progress_date"/>
+                            <field name="progress_description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Progress Tree View -->
+        <record id="view_list_progress_tree" model="ir.ui.view">
+            <field name="name">list_progress_tree</field>
+            <field name="model">list.progress</field>
+            <field name="arch" type="xml">
+                <tree string="Property Progress">
+
+                    <field name="sequence" widget="handle"/>
+
+                    <field name="property_id"/>
+                    <field name="progress_date"/>
+                    <field name="progress_stage"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Progress Action -->
+        <record id="property_list_progress_action_id" model="ir.actions.act_window">
+            <field name="name">Property Progress</field>
+            <field name="res_model">list.progress</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

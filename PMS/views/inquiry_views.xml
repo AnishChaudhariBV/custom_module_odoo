@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form view for inquiries -->
+        <record id="custom_property_inquiry_form" model="ir.ui.view">
+            <field name="name">property_inquiry_form</field>
+            <field name="model">property.inquiry</field>
+            <field name="arch" type="xml">
+                <form string="Inquiry">
+                    <header>
+                        <button name='save' string="Save" type="object" class="oe_save_button"/>
+                    </header>
+
+                    <sheet>
+                        <h3>
+                            <field name="sequence_no"/>
+                        </h3>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="toggle_active" icon="fa-check-circle">
+                                <field name="active" widget="boolean_button" options="{'terminology':'archived'}"/>
+                            </button>
+                        </div>
+
+
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="property_id"/>
+                            <field name="message"/>
+
+
+                        </group>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <!-- Tree view for inquiries -->
+        <record id="custom_property_inquiry_tree" model="ir.ui.view">
+            <field name="name">property_inquiry_tree</field>
+            <field name="model">property.inquiry</field>
+            <field name="arch" type="xml">
+                <tree string="Inquiry">
+                    <field name="sequence_no"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="property_id"/>
+                    <field name="message"/>
+
+
+                </tree>
+            </field>
+
+        </record>
+
+
+        <!-- inquiry Menu Action -->
+        <record id="custom_property_inquiry_action_property" model="ir.actions.act_window">
+            <field name="name">Property inquiry</field>
+            <field name="res_model">property.inquiry</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">There are no records for property.</p>
+            </field>
+        </record>
+    </data>
+</odoo>
+

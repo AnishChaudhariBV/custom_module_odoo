@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="property_list_progress_form" model="ir.ui.view">
+            <field name="name">progress_status_form</field>
+            <field name="model">progress.status</field>
+            <field name="arch" type="xml">
+                <form string="Progress">
+                    <header>
+                        <button name = 'save' string="Save" type="object" class="oe_save_button"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="status"/>
+                            <field name="percent_complete"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+          <record id="property_list_progress_tree" model="ir.ui.view">
+            <field name="name">progress_status_tree</field>
+            <field name="model">progress.status</field>
+            <field name="arch" type="xml">
+                <tree string="Progress ">
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="status"/>
+                            <field name="percent_complete"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="progress_property_action_id" model="ir.actions.act_window">
+            <field name="name">Progress</field>
+            <field name="res_model">progress.status</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

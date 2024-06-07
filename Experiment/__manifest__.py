@@ -1,0 +1,25 @@
+{
+    'name': 'Practice module',
+    'version': '1.0',
+    'summary': 'managing practice in inheritance' ,
+    'author': 'Anish Chaudhari',
+    'sequence':-10,
+
+    'depends': ['base','sale','stock','sale_management'],
+    'data': ['security/ir.model.access.csv',
+             'security/security_groups_access.xml',
+             'data/sale_email_template.xml',
+             'data/birthday_reminder.xml',
+             'data/sale_monthly_report_mail.xml',
+             'views/expr_view.xml',
+             'views/prc_views.xml',
+             'views/sale_commision_views.xml',
+             'views/menu_views.xml',
+             'wizard/inherit_report_views.xml',
+             'wizard/xlxs_wiz.xml',
+             'reports/customer_order_report.xml'
+             ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}
