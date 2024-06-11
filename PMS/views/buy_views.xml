@@ -9,12 +9,16 @@
                     <button name='confirm' string="Confirm" type="object" class="oe_highlight"/>
                 </header>
                 <sheet>
-                    <h1><field name="sequence_no"/></h1>
+                    <h1>
+                        <field name="sequence_no"/>
+                    </h1>
                     <group>
                         <field name="name"/>
                         <field name="property_id"/>
                         <field name="purchase_price"/>
                         <field name="property_price"/>
+                        <field name="gender"/>
+                        <field name="partner_id" domain="[('gender', '=', gender)]" options="{'no_create': True}"/>
 
                         <field name="purchase_date"/>
                     </group>
@@ -35,7 +39,8 @@
                 <field name="name"/>
                 <field name="property_id"/>
                 <field name="property_price"/>
-
+                <field name="gender"/>
+                <field name="partner_id" options="{'no_create': True}"/>
 
                 <field name="purchase_price"/>
                 <field name="purchase_date"/>

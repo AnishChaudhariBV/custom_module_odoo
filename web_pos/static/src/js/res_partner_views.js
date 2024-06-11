@@ -1,4 +1,5 @@
 /* @odoo-module */
+import { PlanningGanttController } from "@planning/views/planning_gantt/planning_gantt_controller";
 
 import { ExpenseListController } from '@hr_expense/views/list';
 import { patch } from "@web/core/utils/patch";
@@ -39,3 +40,10 @@ patch(ExpenseListController.prototype, {
     }
   },
 });
+patch(PlanningGanttController.prototype, {
+    copyPreviousWeekDummy() {
+        const today = new Date();
+        const formattedDate = today.toISOString().split('T')[0];
+        alert(`Hello! Today's date is ${formattedDate}`);
+    },
+  })

@@ -20,7 +20,7 @@
         <menuitem id="custom_property_list_progress_submenu" name="Property list status"
                   parent="custom_progress_inquiry_submenu" action="property_list_progress_action_id" sequence='10'/>
         <menuitem id="custom_property_Buyer_progress_submenu" name="Property Buyer status"
-                  parent="custom_property_list_main_menu" action="action_property_purchase_id" sequence='10'/>
+                  parent="custom_property_list_main_menu" action="action_property_purchase_id"/>
         <menuitem id="menu_sale_reports_graph_action" name="Graph View" parent="custom_property_list_main_menu"
                   action="action_sale_reports_graph"/>
 

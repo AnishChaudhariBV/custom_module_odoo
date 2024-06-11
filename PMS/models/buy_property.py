@@ -1,5 +1,6 @@
 from odoo import models, fields, api, _
 
+
 class PropertyPurchase(models.Model):
     _name = 'property.purchase'
     _description = 'Property Purchase'
@@ -10,12 +11,22 @@ class PropertyPurchase(models.Model):
     purchase_price = fields.Float(string='Purchase Price', required=True)
     purchase_date = fields.Date(string='Purchase Date', default=fields.Date.today)
     sequence_no = fields.Char(string='Sequence No:', readonly=True, copy=False, default=lambda self: _('New'))
+    gender = fields.Selection([
+        ('male', 'Male'),
+        ('female', 'Female')
+    ], string='Gender', required=True)
+
+    partner_id = fields.Many2one('property.inquiry', string='Partner')
+
 
     @api.model
+
+
     def create(self, vals):
         if vals.get('sequence_no', _('New')) == _('New'):
             vals['sequence_no'] = self.env['ir.sequence'].next_by_code('buyer.sequence') or _('New')
         return super(PropertyPurchase, self).create(vals)
+
 
     def confirm(self):
         return {
@@ -25,6 +36,7 @@ class PropertyPurchase(models.Model):
                 'type': 'rainbow_man',
             }
         }
+
 
     @api.onchange('property_id')
     def _onchange_property_id(self):

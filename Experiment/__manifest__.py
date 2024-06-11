@@ -8,7 +8,7 @@
     'depends': ['base','sale','stock','sale_management'],
     'data': ['security/ir.model.access.csv',
              'security/security_groups_access.xml',
-             'data/sale_email_template.xml',
+             # 'data/sale_email_template.xml',
              'data/birthday_reminder.xml',
              'data/sale_monthly_report_mail.xml',
              'views/expr_view.xml',

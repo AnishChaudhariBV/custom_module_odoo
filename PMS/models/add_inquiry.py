@@ -13,6 +13,13 @@ class Inquiry(models.Model):
     sequence_no = fields.Char(string='Inquiry no.', readonly=True, copy=False, default=lambda self: _('New'))
     active = fields.Boolean(string='Active', default=True)
 
+    gender = fields.Selection([
+        ('male', 'Male'),
+        ('female', 'Female')
+    ], string='Gender', required=True)
+
+
+
 
 
     @api.model

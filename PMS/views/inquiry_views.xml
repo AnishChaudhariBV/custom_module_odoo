@@ -28,6 +28,7 @@
                             <field name="phone"/>
                             <field name="property_id"/>
                             <field name="message"/>
+                            <field name="gender" />
 
 
                         </group>
@@ -49,6 +50,7 @@
                     <field name="phone"/>
                     <field name="property_id"/>
                     <field name="message"/>
+                    <field name="gender" />
 
 
                 </tree>
