@@ -6,7 +6,7 @@ import { jsonrpc } from "@web/core/network/rpc_service";
 patch(PlanningGanttController.prototype, {
     copyPreviousWeekDummy() {
         const today = new Date();
-        const formattedDate = today.string(); // Format date as YYYY-MM-DD
+        const formattedDate = today.string();
         alert(`Hello! Today's date is ${formattedDate}`);
     },
   })
