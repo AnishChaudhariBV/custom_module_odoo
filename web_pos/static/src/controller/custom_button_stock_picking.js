@@ -15,12 +15,11 @@ class CustomButtonFormController extends FormController {
         alert("Hello Buddy, Controller IS Working Now");
     }
 }
-
+CustomButtonFormController.template = "web_pos.stock_picking_button";
 // Define a custom form view with the new controller
 export const customButtonFormView = {
     ...formView,
     Controller: CustomButtonFormController,
-    buttonTemplate: "web_pos.stock_picking_button",
 };
 
 // Register the custom form view

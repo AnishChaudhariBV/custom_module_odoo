@@ -1,0 +1,39 @@
+
+.popup-confirm {
+    background: #ffffff !important;
+    color: #333333 !important;
+    .modal-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        .title {
+            color: #343a40 !important;
+            font-weight: bold;
+        }
+        .close {
+            color: #343a40 !important;
+        }
+    }
+
+    .modal-body {
+        padding: 20px;
+        color: #495057 !important;
+    }
+
+    .modal-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        .btn {
+            min-width: 100px;
+            &.btn-secondary {
+                background-color: #6c757d !important;
+                color: #ffffff !important;
+                border: none;
+            }
+            &.btn-primary {
+                background-color: #007bff !important;
+                color: #ffffff !important;
+                border: none;
+            }
+        }
+    }
+}
