@@ -6,6 +6,7 @@ class Property(models.Model):
     _name = 'property.list'
     _description = 'Property Management'
     _inherit = ['mail.thread','mail.activity.mixin']
+    _rec_name='property_type'
 
 
     property_type = fields.Selection([('residential', 'Residential'),
