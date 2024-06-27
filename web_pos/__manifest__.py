@@ -30,6 +30,7 @@
             'web_pos/static/src/xml/pos_product_clear_button.xml',
             'web_pos/static/src/custom.scss',
             'web_pos/static/src/js/total_item_count_pos.js',
+            'web_pos/static/src/js/pos_discount_button.js',
         ],
         'web.assets_frontend': [
             'web_pos/static/src/js/public_widget.js',

@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <templates id="template" xml:space="preserve">
-           <t t-name="point_of_sale.clearButton">
-                <div class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="onclear">
-                    <i class="fa fa-superpowers" role="img" aria-label="ClearButton" title="Clear Button"/>
-                    Clear
-                 </div>
-               <div class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder"
-                    t-on-click="onclearAll">
-                    <i class="fa fa-superpowers" role="img" aria-label="ClearButton" title="Clear  All Button"/>
-                   Clear All
-                 </div>
-           </t>
+    <t t-name="point_of_sale.clearButton">
+        <div class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="onclear">
+            <i class="fa fa-eraser" role="img" aria-label="ClearButton" title="Clear Button"/>
+            Clear
+        </div>
+        <div class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="onclearAll">
+            <i class="fa fa-trash" role="img" aria-label="ClearButton" title="Clear All Button"/>
+            Clear All
+        </div>
+    </t>
+
     <t t-name="point_of_sale.total_OrderCount" t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
-
-    <xpath expr="//div[hasclass('order-summary')]" position="inside">
-    <span>Total item : </span>
-        <span t-esc="state.qty" class="tax"/>
-    </xpath>
-   </t>
+        <xpath expr="//div[hasclass('order-summary')]" position="inside">
+            <span>Total item: </span>
+            <span t-esc="state.qty" class="tax"/>
+        </xpath>
+    </t>
 </templates>
-
-
-

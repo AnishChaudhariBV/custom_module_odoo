@@ -25,16 +25,6 @@ patch(OrderWidget.prototype, {
             updateQuantity();
         });
 
-
-
-
-
-
-
-
-
-
-
          onPatched(() => {
             updateQuantity();
         });

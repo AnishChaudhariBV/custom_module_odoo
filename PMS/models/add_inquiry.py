@@ -1,6 +1,5 @@
 from odoo import models, fields, api, _
 
-
 class Inquiry(models.Model):
     _name = 'property.inquiry'
     _description = 'property inquiry'
@@ -18,10 +17,6 @@ class Inquiry(models.Model):
         ('female', 'Female')
     ], string='Gender', required=True)
 
-
-
-
-
     @api.model
     def create(self, vals):
         if vals.get('sequence_no', _('New')) == _('New'):
@@ -30,3 +25,5 @@ class Inquiry(models.Model):
 
     def save(self):
         print(">>>>>>>>>>>>>>")
+        a=self.with_context(default_message=_('Hello')).write({'message': _('Hello')})
+        print(a)
