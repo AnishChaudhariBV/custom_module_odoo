@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_config_settings_discount" model="ir.ui.view">
+        <field name="name">pos.config.settings.view.form.inherit.discount</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Use XPath to locate the "Pricing" block and add the new section -->
+            <xpath expr="//block[@id='pos_pricing_section']" position="after">
+                <block title="Discount" id="pos_discount_section">
+                    <setting id="discount_value_setting" string="Discount Value">
+                        <field name="discount_value"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

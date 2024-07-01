@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <templates id="template" xml:space="preserve">
-    <t t-name="point_of_sale.CreateButton">
-        <div class="abcd control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="onClick">
-            <i class="fa fa-edit" role="img" aria-label="Add Note" title="Add Note"/>
-            Add Note
-        </div>
+   <t t-name="point_of_sale.AddNotesButton">
+        <button class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="onAddItemNote">
+            <i class="fa fa-solid fa-clipboard me-1" role="img" aria-label="Add Note" title="Add Note"/>
+            Add item notes
+        </button>
     </t>
+
     <t t-name="point_of_sale.DiscountButton">
         <div class="Discount control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="onCustomDiscount">
             <i class="fa fa-tag" role="img" aria-label="Discount" title="Discount"/>

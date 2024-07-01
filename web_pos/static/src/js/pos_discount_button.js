@@ -1,4 +1,4 @@
-/** @odoo-module**/
+/** @odoo-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { Component } from "@odoo/owl";
@@ -13,38 +13,49 @@ class CustomDiscount extends Component {
     setup() {
         this.popup = useService("popup");
         this.pos = useService("pos");
+        this.orm = useService("orm");
     }
+
     async onCustomDiscount() {
-        const selectedLines = this.pos.get_order().get_orderlines();
-        if (!selectedLines) {
-            this.popup.add(ErrorPopup, {
-                title: _t("OrderLine is not selected"),
-                body: _t("Please select an order first!"),
-            });
-            return;
-        }
+        try {
+            // Fetch the discount value from ir.config_parameter
+            const result = await this.orm.call("ir.config_parameter", "get_param", ["web_pos.discount_value"]);
+            const customDiscount = parseFloat(result);
+            console.log(customDiscount)
 
-        const { confirmed, payload: inputNote } = await this.popup.add(NumberPopup, {
-            title: _t("Add ALL Over Discount(%) For Customer"),
-            body: _t("Enter the discount percentage (e.g. 10 for 10%):"),
-
-
-        });
-
-        if (confirmed) {
-        if (inputNote >= 100 || inputNote <=0 || !Number(inputNote)){
-        this.popup.add(ErrorPopup, {
-                title: _t("You can not give discount value 0 or 100"),
-                body: _t("Please Enter valid value!"),
-            });
-            return;
-        }
-        for (let selectedLine of  selectedLines){
-            selectedLine.set_discount(inputNote);
+            // Validate the discount value
+            if (customDiscount >= 100 || customDiscount <= 0 || isNaN(customDiscount)) {
+                throw new Error("Invalid discount value");
             }
+
+            // Apply the discount to selected order lines
+            const selectedLines = this.pos.get_order().get_orderlines();
+            const ordered = this.pos.get_order()
+
+            ordered.discount_applied = true
+               console.log(ordered.discount_applied)
+            if (!selectedLines || selectedLines.length === 0) {
+                this.popup.add(ErrorPopup, {
+                    title: _t("No Order Lines"),
+                    body: _t("Please add products to the order first!"),
+                });
+                return;
+            }
+
+            for (let selectedLine of selectedLines) {
+                selectedLine.set_discount(customDiscount);
+
+            }
+
+        } catch (error) {
+            console.error("Error applying discount:", error);
+            this.popup.add(ErrorPopup, {
+                title: _t("Error Applying Discount"),
+                body: _t("There was an error applying the discount. Please try again later."),
+            });
         }
     }
-};
+}
 
 ProductScreen.addControlButton({
     component: CustomDiscount,

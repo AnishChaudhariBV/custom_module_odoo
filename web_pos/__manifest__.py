@@ -11,7 +11,9 @@
     'data': [
         'data/hr_mail.xml',
         'views/res_list_views.xml',
-        'views/stock_picking_js_connection.xml'
+        'views/stock_picking_js_connection.xml',
+        'views/pos_views.xml',
+        'views/pos_seeting_views.xml'
 
     ],
     'assets': {
@@ -31,6 +33,11 @@
             'web_pos/static/src/custom.scss',
             'web_pos/static/src/js/total_item_count_pos.js',
             'web_pos/static/src/js/pos_discount_button.js',
+            'web_pos/views/pos_views.xml',
+            'web_pos/static/src/js/add_note_pos.js',
+
+
+
         ],
         'web.assets_frontend': [
             'web_pos/static/src/js/public_widget.js',
