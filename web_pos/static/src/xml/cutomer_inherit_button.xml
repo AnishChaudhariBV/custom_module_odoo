@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="web_pos.Customer" t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension">
+        <!-- hr.expense and hr.expense.sheet -->
+        <xpath expr="//div[hasclass('back')]" position="after">
+            <button class="d-none d-md-block btn btn-secondary" t-on-click="customer_sundry">
+                set sundry customer
+            </button>
+        </xpath>
+    </t>
+
+</templates>
+
+

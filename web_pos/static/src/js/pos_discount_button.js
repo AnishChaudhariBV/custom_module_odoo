@@ -5,7 +5,6 @@ import { Component } from "@odoo/owl";
 import { ProductScreen } from "@point_of_sale/app/screens/product_screen/product_screen";
 import { _t } from "@web/core/l10n/translation";
 import { ErrorPopup } from "@point_of_sale/app/errors/popups/error_popup";
-import { NumberPopup } from "@point_of_sale/app/utils/input_popups/number_popup";
 
 class CustomDiscount extends Component {
     static template = "point_of_sale.DiscountButton";

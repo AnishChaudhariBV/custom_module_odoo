@@ -15,6 +15,7 @@
         'views/pos_views.xml',
         'views/pos_seeting_views.xml'
 
+
     ],
     'assets': {
         'web.assets_backend': [
@@ -35,8 +36,11 @@
             'web_pos/static/src/js/pos_discount_button.js',
             'web_pos/views/pos_views.xml',
             'web_pos/static/src/js/add_note_pos.js',
-
-
+            # 'web_pos/static/src/js/reciept_custom.js',
+            # 'web_pos/static/src/xml/reciept_views.xml',
+            # 'web_pos/static/src/js/customer.js'
+            'web_pos/static/src/xml/cutomer_inherit_button.xml',
+            'web_pos/static/src/js/customer.js'
 
         ],
         'web.assets_frontend': [
