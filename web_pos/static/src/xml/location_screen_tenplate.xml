@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_config.LocationScreen" owl="1">
+        <div class="location-screen screen h-100 bg-100">
+            <div class="controls d-flex align-items-center justify-content-between mt-1 mt-md-0 p-2 bg-400">
+                <div class="buttons d-flex gap-2">
+                    <button class="discard btn btn-lg btn-light" t-on-click="() => this.pos.showScreen('ProductScreen')">
+                        <span class="search-icon">
+                            <i class="fa fa-angle-double-left"/>
+                        </span>
+                        Back
+                    </button>
+                </div>
+            </div>
+            <div class="locations overflow-y-auto flex-grow-1">
+                <div class="header-row d-flex text-bg-700 fw-bolder">
+                    <div class="col wide p-2">Location Name</div>
+                </div>
+                <t t-set="locationList" t-value="state.locations"/>
+                <t t-foreach="locationList" t-as="location" t-key="location.id">
+                    <div class="location-row" t-on-click="()=>this.click(location)">
+                        <div class="col wide p-2">
+                            <div>
+                                <t t-esc="location.location_area"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <t t-if="locationList.length == 0">
+                    <div class="empty-location-list" style="text-align: center; margin: 48px; color: #80848F;">
+                        <i role="img" aria-label="Location" title="Location" class="fa fa-map-marker-alt"/>
+                        <h1>No locations found</h1>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>
