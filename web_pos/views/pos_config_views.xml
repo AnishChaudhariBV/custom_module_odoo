@@ -6,9 +6,18 @@
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//setting[@id='other_devices']" position="after">
-                    <setting string="Locations" help="Set your location">
-                        <field name="location_ids" widget="many2many_tags" />
-                    </setting>
+
+                <setting string="Locations" help="Set your locations">
+                         <field name="location_enable"/>
+
+                    <field name="location_ids" widget="many2many_tags" invisible="location_enable == 0"/>
+
+                </setting>
+                <setting string="contacts" help="Set your contacts">
+
+                    <field name="contact_ids" widget="many2many_tags"/>
+
+                </setting>
             </xpath>
         </field>
     </record>

@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <!-- Assuming the correct path in the parent view -->
             <xpath expr="//notebook/page[@name='invoice_tab']/field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="after">
-                <field name="name2"/>
-            </xpath>
+                <field name="product_image"/>
+             </xpath>
         </field>
     </record>
 </odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payment_config.payment_provider_cybersource" model="payment.provider">
+        <field name="name">cybersource</field>
+        <field name="code">cybersource</field>
+        <field name="state">enabled</field>
+        <field name="inline_form_view_id" ref="payment_provider_form"/>
+        <field name="cybersource_merchant_id">anishh_13_1720527777</field>
+        <field name="cybersource_api_key_id">42433cf1-a83e-4f8f-8431-1a422cc75f65</field>
+        <field name="cybersource_secret_key">UwvaL7mxdDmjBX6qLeQbNwKuwt24S/bxKU4eAD4IZ4M=</field>
+    </record>
+</odoo>

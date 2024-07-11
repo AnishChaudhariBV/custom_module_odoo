@@ -27,6 +27,9 @@ if (current_order){
 ProductScreen.addControlButton({
     component: LocationButton,
     position: ["after", "SetSaleOrderButton"],
+     condition: function () {
+        return this.pos.config.location_enable;
+    },
 });
 
 export default LocationButton;

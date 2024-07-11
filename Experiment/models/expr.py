@@ -43,6 +43,21 @@ class SaleOrderLine(models.Model):
 
     custom_name = fields.Char(string="Custom Name")
     is_available = fields.Boolean(string="Is Available", compute="_compute_available_or_not")
+    product_image = fields.Binary(string="Product Image", related='product_id.image_1920', depends=['product_id'])
+
+    def _prepare_procurement_values(self, group_id=False):
+        values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
+        values.update({
+            'product_image': self.product_image,
+        })
+        return values
+
+    def _prepare_invoice_line(self, **optional_values):
+        res = super(SaleOrderLine, self)._prepare_invoice_line(**optional_values)
+        res.update({
+            'product_image': self.product_image
+        })
+        return res
 
     @api.depends('product_uom_qty', 'order_id.partner_id')
     def _compute_available_or_not(self):
@@ -73,11 +88,14 @@ class StockRule(models.Model):
 class StockMove(models.Model):
     _inherit = 'stock.move'
     custom_name = fields.Char(string="Custom Name")
+    product_image = fields.Binary(string="Product Image")
+
 
 
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
     nick_name= fields.Char(string="Nick Name")
+
 
 
 

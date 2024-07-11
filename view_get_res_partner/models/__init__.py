@@ -1,0 +1,1 @@
+from . import _res_inherit

@@ -5,8 +5,10 @@
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="add_note" string="Add Note"/>
-                <field name="discount_applied" string="Discount Applied"/>
+                <field name="add_note" string="Add Note" readonly="1"/>
+                <field name="discount_applied" string="Discount Applied" readonly="1"/>
+                <field name="location" string="Customer Location" readonly="1"/>
+                <field name="contact" string="Contact" readonly="1"/>
             </xpath>
         </field>
     </record>

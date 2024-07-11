@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_config.Contact_screen" owl="1">
+        <div class="contact-screen screen h-100 bg-100">
+            <div class="controls d-flex align-items-center justify-content-between mt-1 mt-md-0 p-2 bg-400">
+                <div class="buttons d-flex gap-2">
+                    <button class="discard btn btn-lg btn-light" t-on-click="() => this.pos.showScreen('ProductScreen')">
+                        <span class="search-icon">
+                            <i class="fa fa-angle-double-left"/>
+                        </span>
+                        Back
+                    </button>
+                </div>
+            </div>
+            <div class="contacts overflow-y-auto flex-grow-1">
+                <t t-foreach="state.contacts" t-as="contact" t-key="contact.id">
+                    <div class="contact-row" t-on-click="()=>this.click(contact)">
+                        <div class="col wide p-2">
+                            <div>
+                                Name: <t t-esc="contact.name" class="hover-effect-name"/><br/>
+                                ID: <t t-esc="contact.id" class="hover-effect-id"/>
+                            </div>
+                        </div>
+                        <div class="col p-2">
+                            <!-- Button to view contact details -->
+                            <button class="btn btn-primary btn-sm">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </t>
+                <t t-if="state.contacts.length === 0">
+                    <div class="empty-contact-list" style="text-align: center; margin: 48px; color: #80848F;">
+                        <i role="img" aria-label="Contact" title="Contact" class="fa fa-user"/>
+                        <h1>No Contacts found</h1>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

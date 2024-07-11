@@ -12,6 +12,7 @@
         'views/menu.xml',
         'views/practice_view.xml',
         'views/practice_1_views.xml',
+        # 'views/contrl.xml'
     ],
     'application': True,
     'installable': True,

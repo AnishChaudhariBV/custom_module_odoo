@@ -5,7 +5,7 @@
     'author': 'Anish Chaudhari',
     'sequence':-10,
 
-    'depends': ['base','sale','stock','sale_management'],
+    'depends': ['base','sale','stock','sale_management','website'],
     'data': ['security/ir.model.access.csv',
              'security/security_groups_access.xml',
              # 'data/sale_email_template.xml',
@@ -17,7 +17,8 @@
              'views/menu_views.xml',
              'wizard/inherit_report_views.xml',
              'wizard/xlxs_wiz.xml',
-             'reports/customer_order_report.xml'
+             'reports/customer_order_report.xml',
+             'views/sale_config_views.xml'
              ],
     'installable': True,
     'application': True,

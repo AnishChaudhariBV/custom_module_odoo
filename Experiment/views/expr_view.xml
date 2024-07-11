@@ -14,6 +14,8 @@
                 <xpath expr="//form/sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='tax_id']"
                        position="after">
                     <field name="custom_name"/>
+                    <field name="product_image"/>
+
                 </xpath>
                 <xpath expr="//form/header/button[@name='action_cancel']" position="after">
                     <button name="action_print_report" type="object" string='Print'/>
@@ -37,8 +39,10 @@
                 <xpath expr="//form/sheet/notebook/page[@name='operations']/field[@name='move_ids_without_package']/tree/field[@name='product_uom_qty']"
                        position="after">
                     <field name="custom_name" string="Custom Name"/>
+                    <field name="product_image" string="product Image"/>
                 </xpath>
             </field>
         </record>
+
     </data>
 </odoo>

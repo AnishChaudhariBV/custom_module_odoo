@@ -1,0 +1,50 @@
+<odoo>
+    <record id="sales_limit_view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">sales.limit.view.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block id="pricing_setting_container" position="before">
+                <block title="Approve sale">
+                    <setting string="Set Approve Sales Limit" help="Set a sales limit for approval">
+                        <field name="sales_limit"/>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+    <record id="sale_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.view.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="attributes">
+                <attribute name="widget">statusbar</attribute>
+                <attribute name="statusbar_visible">draft,sent,approve,sale</attribute>
+            </field>
+            <xpath expr="//form/header/button[@name='action_cancel']" position="after">
+                <button name="approve_sale" type="object" string="Approve"
+                        groups="Experiment.group_sale_manager_approve_from"
+                        invisible="state == 'draft' or state == 'sent' or state == 'sale' or state == 'cancel' "/>
+            </xpath>
+        </field>
+
+    </record>
+    <record id="sale_approval_act_window" model="ir.actions.act_window">
+        <field name="name">sale order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="domain">[('state','=','approve')]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new ModelTitle.
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Approve Sale order" id="menu_approve_sale_order" parent="sale.sale_order_menu"
+              action="sale_approval_act_window" groups="Experiment.group_sale_manager_approve_from"/>
+
+
+</odoo>

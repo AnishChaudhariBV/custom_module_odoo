@@ -16,6 +16,8 @@
         'views/pos_views.xml',
         'views/pos_seeting_views.xml',
         'views/pos_config_views.xml',
+        "views/location_views.xml",
+        "views/cutom_views.xml",
 
     ],
     'assets': {
@@ -38,11 +40,16 @@
             'web_pos/static/src/js/add_note_pos.js',
             'web_pos/static/src/xml/cutomer_inherit_button.xml',
             'web_pos/static/src/js/customer.js',
-            'web_pos/static/src/js/location.js',
+            'web_pos/static/src/js/location_button.js',
             'web_pos/static/src/xml/pos_location.xml',
             'web_pos/static/src/xml/location_screen_tenplate.xml',
             'web_pos/static/src/js/add_location_screen.js',
             'web_pos/static/src/xml/location_receipit.xml',
+            'web_pos/static/src/js/Custom_contact.js',
+            'web_pos/static/src/xml/custom_contact.xml',
+            'web_pos/static/src/js/customer_screen.js',
+            'web_pos/static/src/xml/customer_screen.xml',
+
 
         ],
         'web.assets_frontend': [

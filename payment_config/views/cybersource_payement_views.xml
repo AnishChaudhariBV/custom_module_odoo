@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">Cybersource Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position='after'>
+                <group>
+                    <field name="cybersource_merchant_id"
+                    />
+                    <field name="cybersource_api_key_id"
+                    />
+                    <field name="cybersource_secret_key" password="True"
+                    />
+                    <a href="https://www.cybersource.com/en-us.html"
+                       target="_blank"
+                       colspan="2">
+                        How to configure your Cybersource account?
+                    </a>
+                </group>
+            </group>
+        </field>
+    </record>
+
+
+
+</odoo>
+
+
