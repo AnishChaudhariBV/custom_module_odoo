@@ -1,0 +1,128 @@
+<odoo>
+    <template id="custom_form_render" name="Custom Page">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="text-center mb-5">
+                    <h1 class="custom-title">Welcome to My Custom Page</h1>
+                </div>
+
+                <t t-if="success">
+                    <div class="alert alert-success text-center" role="alert">
+                        Thank you for submitting!
+                    </div>
+                </t>
+
+                <t t-if="error">
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            <t t-foreach="errors" t-as="error">
+                                <li>
+                                    <t t-esc="error"/>
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+
+                <!-- Contact Form -->
+                <section id="contact-form" class="mb-5">
+                    <div class="card shadow" style="position: relative;">
+                        <div class="card-body" style="position: relative; z-index: 2;">
+                            <h2 class="card-title">Contact Us</h2>
+                            <form action="/my/custom/page/submit" method="post" class="needs-validation"
+                                  style="background-image: url('/website_form_render/static/src/img/download.jpeg'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px;"
+                            >
+                                <table class="table table-bordered" style="background-color: rgba(255, 255, 255, 0.8);">
+                                    <tr>
+                                        <td>
+                                            <label for="name">Name:</label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="name" name="name" class="form-control"/>
+                                            <div class="invalid-feedback">Please enter your name.</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="mobile">Mobile Number:</label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="mobile" name="mobile" class="form-control"
+                                                   pattern="\d+"/>
+                                            <div class="invalid-feedback">Please enter a valid mobile number.</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="email">Email:</label>
+                                        </td>
+                                        <td>
+                                            <input type="email" id="email" name="email" class="form-control"/>
+                                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="address">Address:</label>
+                                        </td>
+                                        <td>
+                                            <textarea id="address" name="address" class="form-control"
+                                                      rows="3"></textarea>
+                                            <div class="invalid-feedback">Please enter your address.</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="gender">Gender:</label>
+                                        </td>
+                                        <td>
+                                            <select id="gender" name="gender" class="form-control">
+                                                <option value="">Select...</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                            <div class="invalid-feedback">Please select your gender.</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <!-- Custom Button -->
+                            <div class="text-center mt-3">
+                                <a href="/" class="btn btn-secondary custom-button">Go to Home Page</a>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('/website_form_render/static/src/img/form-background.jpg'); background-size: cover; background-position: center; z-index: 1; opacity: 0.3;"></div>
+                    </div>
+                </section>
+
+                <!-- About Us Section -->
+                <section id="about-us" class="mb-5">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="/website_form_render/static/src/img/images (1).jpeg"
+                                         class="img-fluid rounded" alt="About Us"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <h2 class="card-title">About Us</h2>
+                                    <p class="card-text">
+                                        We are a team of dedicated professionals committed to providing excellent
+                                        services. Our mission is to deliver quality and value to our customers. We
+                                        believe in innovation, integrity, and customer satisfaction. Thank you for
+                                        visiting our page.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
