@@ -71,19 +71,7 @@
                                             <div class="invalid-feedback">Please enter your address.</div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="gender">Gender:</label>
-                                        </td>
-                                        <td>
-                                            <select id="gender" name="gender" class="form-control">
-                                                <option value="">Select...</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please select your gender.</div>
-                                        </td>
-                                    </tr>
+
                                     <tr>
                                         <td colspan="2" class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Submit</button>

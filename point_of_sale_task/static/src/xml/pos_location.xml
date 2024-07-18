@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale.location">
+        <div class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="add_location">
+            <!-- Your template content here -->
+                <i class="fa fa-map-marker" role="img" aria-label="Add Locations" title="Add Locations"/>
+
+                <t t-esc="state.selectedlocation"/>
+
+        </div>
+    </t>
+</templates>

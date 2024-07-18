@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale.custom_contact">
+        <div class="control-button o_sale_order_button btn btn-light rounded-0 fw-bolder" t-on-click="custom_contact">
+            <!-- Your template content here -->
+                <i class="fa fa-address-book" role="img" aria-label="Add Contact" title="Add Contact"/>
+                <t t-esc="state.selectedcontacts"/>
+
+        </div>
+    </t>
+</templates>

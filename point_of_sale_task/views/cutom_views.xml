@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_custom_contact_form" model="ir.ui.view">
+        <field name="name">custom.contact.form</field>
+        <field name="model">custom.contact</field>
+        <field name="arch" type="xml">
+            <form string="Custom Contact">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="mo_no"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custom_contact_tree" model="ir.ui.view">
+        <field name="name">custom.contact.tree</field>
+        <field name="model">custom.contact</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Contact">
+                <field name="name"/>
+                <field name="mo_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_custom_contact" model="ir.actions.act_window">
+        <field name="name">Custom Contacts</field>
+        <field name="type">ir.actions.act_window</field>
+
+        <field name="res_model">custom.contact</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_custom_contact" name="Custom Contacts" parent="point_of_sale.menu_point_of_sale"
+              action="action_custom_contact"/>
+</odoo>

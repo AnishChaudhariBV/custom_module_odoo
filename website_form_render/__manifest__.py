@@ -6,6 +6,7 @@
     'sequence': -10,
     'depends': ['website'],
     'data': [
+        "security/ir.model.access.csv",
         'views/form_views_controllers_template.xml',
     ],
     'assets': {

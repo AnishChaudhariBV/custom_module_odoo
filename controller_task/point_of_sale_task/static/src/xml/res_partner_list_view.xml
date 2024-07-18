@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="web_pos.ListButtons" t-inherit="hr_expense.ListButtons" t-inherit-mode="extension">
+        <!-- hr.expense and hr.expense.sheet -->
+        <xpath expr="//button[@t-if='displayCreateReport()']" position="after">
+            <button class="d-none d-md-block btn btn-secondary"
+                    t-on-click="sendEmail">
+                Send Notification
+            </button>
+        </xpath>
+    </t>
+    <t t-name="web_pos.planingButtons" t-inherit="planning.PlanningGanttView.Buttons" t-inherit-mode="extension">
+        <!-- hr.expense and hr.expense.sheet -->
+        <xpath expr="//button[@t-if='model.metaData.canCreate']" position="after">
+            <button class="d-none d-md-block btn btn-secondary" t-on-click="copyPreviousWeekDummy">
+                Check Date
+            </button>
+        </xpath>
+    </t>
+    <t t-name="web_pos.stock_picking_button" t-inherit="web.FormView">
+        <xpath expr="//t[@t-set-slot='layout-buttons']" position="inside">
+            <button class="d-none d-md-block btn btn-secondary" t-on-click="custom_button_action">
+                Custom Button
+            </button>
+        </xpath>
+    </t>
+
+
+</templates>
+
+

@@ -4,7 +4,7 @@
     'summary': 'this is practice module',
     'description': 'for practice purpose',
     'category': 'practice',
-    'author': 'harsh',
+    'author': 'Anish',
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [

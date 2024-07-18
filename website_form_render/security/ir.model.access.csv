@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_form_data,custom form data,model_custom_form_data,base.group_public,1,1,1,1
+access_signin_user_data,signin user data,model_signin_user_data,base.group_user,1,1,1,1
+
