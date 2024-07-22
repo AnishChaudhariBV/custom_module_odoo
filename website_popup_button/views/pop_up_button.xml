@@ -3,7 +3,7 @@
         <xpath expr="//button[@id='portal_searchbar_sortby']" position="after">
             <!-- Search Button to Trigger Modal -->
             <div>
-                <a t-attf-class="btn rounded-circle p-1 lh-1 #{_button_classes or 'bg-o-color-3'} o_not_editable"
+                <a t-attf-class="oe_unremovable btn btn-primary btn_cta"
                    data-bs-target="#popup" data-bs-toggle="modal" role="button" title="Search" href="#">
                     Search
                 </a>

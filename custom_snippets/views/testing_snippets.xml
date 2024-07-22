@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Define the Snippet -->
+    <template id="test_snippet" name="Test Snippet">
+        <section class="container my-snippet">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="my-snippet-title">Welcome to Our Custom Snippets</h1>
+                    <p class="my-snippet-description">Discover the amazing features and services we offer.</p>
+                    <a href="/appointment" class="btn btn-primary my-snippet-button">Go To Appointment </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Register the Snippet in the Website Builder -->
+    <template id="external_snippets" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_content']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="custom_snippets.test_snippet"  t-thumbnail="/custom_snippets/static/src/img/testing_9349901.png"/>
+        </xpath>
+    </template>
+</odoo>

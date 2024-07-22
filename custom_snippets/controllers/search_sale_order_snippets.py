@@ -1,7 +1,7 @@
 from odoo import http
 from odoo.http import request
 
-class SaleOrderSearch(http.Controller):
+class SaleOrderSnippetsSearch(http.Controller):
 
     @http.route('/sale_order_search', type='json', auth='public', methods=['POST'])
     def search_sale_order(self, search_query):

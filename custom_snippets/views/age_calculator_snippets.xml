@@ -1,0 +1,22 @@
+<odoo>
+    <template id="age_counter_template">
+        <section class="age_counter_widget container my-snippet">
+            <div class="container">
+                <form id="ageCounterForm" class="form">
+                    <div class="form-group mb-3">
+                        <label for="birthdate">Enter your birthdate</label>
+                        <input type="date" class="form-control" id="birthdate" name="birthdate"/>
+                        <div class="invalid-feedback">Please enter your birthdate.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Calculate Age</button>
+                </form>
+                <div id="ageDisplay" class="mt-3"></div>
+            </div>
+        </section>
+    </template>
+    <template id="external_age_counter_snippets" inherit_id="website.snippets" priority="10">
+        <xpath expr="//div[@id='snippet_content']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="custom_snippets.age_counter_template" t-thumbnail="/custom_snippets/static/src/img/age_5824120.png"/>
+        </xpath>
+    </template>
+</odoo>
