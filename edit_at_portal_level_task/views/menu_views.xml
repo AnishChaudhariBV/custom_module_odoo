@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <menuitem id="my_form_model_menu" name="My Form Models"/>
+    <menuitem id="custom_from_sub_menu" name="User Form Data" parent="my_form_model_menu" action="my_form_model_action"/>
+    </data>
+</odoo>

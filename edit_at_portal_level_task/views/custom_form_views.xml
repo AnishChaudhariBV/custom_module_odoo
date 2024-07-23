@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="custom_form_view" model="ir.ui.view">
+        <field name="name">custom.form.view</field>
+        <field name="model">custom.form</field>
+        <field name="arch" type="xml">
+            <form string="Custom Form">
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="message"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="custom_tree_view" model="ir.ui.view">
+        <field name="name">custom.tree.view</field>
+        <field name="model">custom.form</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Form">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="my_form_model_action" model="ir.actions.act_window">
+        <field name="name">Custom Form </field>
+        <field name="res_model">custom.form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
