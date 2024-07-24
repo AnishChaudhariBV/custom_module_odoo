@@ -17,8 +17,12 @@ class SubstituteProductWizard(models.TransientModel):
 
         product_template = self.sale_order_line_id.product_id.product_tmpl_id
         if product_template:
-            available_substitutes = product_template.alternative_product_ids
-            available_substitute_products = available_substitutes.filtered(lambda p: p.qty_available > 0)
+            available_substitutes = product_template.substitute_product_ids
+            available_substitute_products = self.env['product.product'].search([
+                ('product_tmpl_id', 'in', available_substitutes.ids),
+                ('qty_available', '>', 0)
+            ])
+            print("Available substitutes:", available_substitute_products)  # Debug
             if not available_substitute_products:
                 raise exceptions.UserError(_('No alternate products available.'))
             self.substitute_product_ids = [(6, 0, available_substitute_products.ids)]
@@ -37,6 +41,8 @@ class SubstituteProductWizard(models.TransientModel):
         substitute_product_variant = self.selected_substitute_product_id
         sale_order_line = self.sale_order_line_id
         sale_order = sale_order_line.order_id
+
+        print("Selected substitute product:", substitute_product_variant)  # Debug
 
         if sale_order_line.is_substituted and sale_order_line.product_id == substitute_product_variant:
             raise exceptions.UserError(_('The selected substitute product is already applied to this line.'))

@@ -9,7 +9,7 @@
     'data': ['security/ir.model.access.csv',
              'views/sale_order_line.xml',
              "reports/substitude_product_report.xml",
-             # 'views/product_template_inherit.xml',
+             'views/product_template_inherit.xml',
              'wizard/substitute_product_wizard_views.xml'
              ],
     'installable': True,
