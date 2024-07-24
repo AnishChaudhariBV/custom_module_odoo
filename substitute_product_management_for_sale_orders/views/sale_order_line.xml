@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_substitute_order" model="ir.ui.view">
+            <field name="name">view.substitute.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='tax_id']"
+                       position="before">
+                    <field name="is_substituted"/>
+                </xpath>
+                <xpath expr="//form/header/button[@name='action_cancel']" position="after">
+                    <field name="has_substituted_lines" invisible="1"/>
+
+                    <button name="action_substitute_product_wizard" type="object" string='Substitute Product'
+                            class="oe_highlight" invisible="has_substituted_lines == False"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

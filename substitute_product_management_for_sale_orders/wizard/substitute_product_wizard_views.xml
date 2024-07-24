@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <!-- Substitute Product Wizard Form View -->
+        <record id="view_substitute_product_wizard_form" model="ir.ui.view">
+            <field name="name">substitute.product.wizard.form</field>
+            <field name="model">substitute.product.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Substitute Product">
+                    <group>
+                        <field name="order_id" invisible="1"/>
+                    <field name="sale_order_line_id" domain="[('order_id', '=', order_id), ('is_substituted', '=', True)]" required="1"/>
+
+                        <field name="substitute_product_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="selected_substitute_product_id" domain="[('id', 'in', substitute_product_ids)]" required="1"/>
+                    </group>
+                    <footer>
+                        <button string="substitute_product" type="object" name="substitute_product" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for the wizard -->
+        <record id="action_substitute_product_wizard" model="ir.actions.act_window">
+            <field name="name">Substitute Product</field>
+            <field name="res_model">substitute.product.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
