@@ -32,10 +32,6 @@ class SaleOrder(models.Model):
             order.has_substituted_lines = any(line.is_substituted for line in order.order_line)
 
     def action_substitute_product_wizard(self):
-        self.ensure_one()
-        substituted_lines = self.order_line.filtered(lambda l: l.is_substituted)
-        if not substituted_lines:
-            raise exceptions.UserError(_('There are no substituted lines to process.'))
 
         return {
             'type': 'ir.actions.act_window',
@@ -43,7 +39,7 @@ class SaleOrder(models.Model):
             'res_model': 'substitute.product.wizard',
             'view_mode': 'form',
             'target': 'new',
-            'context': {'default_sale_order_line_id': substituted_lines.ids, 'default_order_id': self.id}
+            'context': {'default_order_id': self.id}
         }
 
     def action_confirm(self):

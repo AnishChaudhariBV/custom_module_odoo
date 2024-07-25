@@ -1,0 +1,30 @@
+<odoo>
+    <template id="substitute_product_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']/div[@name='informations_date']" position="after">
+            <t t-if="doc.original_product_id or doc.substitute_product_id">
+                <div class="col-auto col-3 mw-100 mb-2">
+                    <t t-if="doc.original_product_id">
+                        <div>
+                            <strong>Original Products:</strong>
+                            <ul>
+                                <t t-foreach="doc.original_product_id" t-as="product">
+                                    <li><span t-esc="product.name"/></li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                    <t t-if="doc.substitute_product_id">
+                        <div>
+                            <strong>Substituted Products:</strong>
+                            <ul>
+                                <t t-foreach="doc.substitute_product_id" t-as="product">
+                                    <li><span t-esc="product.name"/></li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

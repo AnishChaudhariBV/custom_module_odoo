@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- View to extend the product.template form -->
         <record id="view_substitute_product" model="ir.ui.view">
             <field name="name">view.substitute.product</field>
             <field name="model">product.template</field>
@@ -14,5 +13,17 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="action_substitute_products" model="ir.actions.act_window">
+            <field name="name">Add Substitute Products</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_substitute_products"
+                  name="Substitute Products"
+                  parent="sale.product_menu_catalog"
+                  action="action_substitute_products"
+                  sequence="40"/>
     </data>
 </odoo>

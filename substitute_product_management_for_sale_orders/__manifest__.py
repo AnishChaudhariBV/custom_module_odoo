@@ -8,9 +8,10 @@
     'depends': ['base','sale','product'],
     'data': ['security/ir.model.access.csv',
              'views/sale_order_line.xml',
-             "reports/substitude_product_report.xml",
+             "reports/substitute_product_report.xml",
+             "reports/substitude_product_inherit_report.xml",
              'views/product_template_inherit.xml',
-             'wizard/substitute_product_wizard_views.xml'
+              'wizard/substitute_product_wizard_views.xml'
              ],
     'installable': True,
     'application': True,

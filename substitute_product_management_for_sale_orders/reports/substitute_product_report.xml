@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Report Template Definition -->
+        <template id="substitute_product_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2 style="font-size: 20px; margin-bottom: 20px;">
+                                Substitute Product Report for Order: <span t-field="doc.name"/>
+                            </h2>
+                            <div style="margin-bottom: 20px;">
+                                <div style="display: inline-block; margin-right: 20px;">
+                                    <strong>Customer:</strong>
+                                    <span t-field="doc.partner_id.name"/>
+                                </div>
+                                <div style="display: inline-block; margin-right: 20px;">
+                                    <strong>Order Date:</strong>
+                                    <span t-field="doc.date_order"/>
+                                </div>
+                            </div>
+                            <hr style="border-top: 1px solid #000; margin-bottom: 20px;"/>
+                            <h3>Original and Substituted Products</h3>
+                            <div>
+                                <t t-if="doc.original_product_id or doc.substitute_product_id">
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <t t-if="doc.original_product_id">
+                                            <div>
+                                                <strong>Original Products:</strong>
+                                                <ul>
+                                                    <t t-foreach="doc.original_product_id" t-as="product">
+                                                        <li><span t-esc="product.name"/></li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </t>
+                                        <t t-if="doc.substitute_product_id">
+                                            <div>
+                                                <strong>Substituted Products:</strong>
+                                                <ul>
+                                                    <t t-foreach="doc.substitute_product_id" t-as="product">
+                                                        <li><span t-esc="product.name"/></li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- Report Action Definition -->
+        <record id="action_substitute_product_qweb_report" model="ir.actions.report">
+            <field name="name">Substitute Product Report</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">substitute_product_management_for_sale_orders.substitute_product_report_template</field>
+            <field name="report_file">substitute_product_management_for_sale_orders.substitute_product_report_template</field>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

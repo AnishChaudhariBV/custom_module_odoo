@@ -11,7 +11,7 @@
                     <field name="sale_order_line_id" domain="[('order_id', '=', order_id), ('is_substituted', '=', True)]" required="1"/>
 
                         <field name="substitute_product_ids" widget="many2many_tags" options="{'no_create': True}"/>
-                        <field name="selected_substitute_product_id" domain="[('id', 'in', substitute_product_ids)]" required="1"/>
+                        <field name="selected_substitute_product_id" domain="[('id', 'in', substitute_product_ids)]" options="{'no_create': True}" required="1"/>
                     </group>
                     <footer>
                         <button string="substitute_product" type="object" name="substitute_product" class="btn-primary"/>

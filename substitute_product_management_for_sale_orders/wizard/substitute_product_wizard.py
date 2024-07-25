@@ -11,10 +11,6 @@ class SubstituteProductWizard(models.TransientModel):
 
     @api.onchange('sale_order_line_id')
     def _get_available_substitute_products(self):
-        if not self.sale_order_line_id:
-            self.substitute_product_ids = [(5, 0, 0)]
-            return
-
         product_template = self.sale_order_line_id.product_id.product_tmpl_id
         if product_template:
             available_substitutes = product_template.substitute_product_ids
@@ -26,8 +22,6 @@ class SubstituteProductWizard(models.TransientModel):
             if not available_substitute_products:
                 raise exceptions.UserError(_('No alternate products available.'))
             self.substitute_product_ids = [(6, 0, available_substitute_products.ids)]
-        else:
-            self.substitute_product_ids = [(5, 0, 0)]
 
     def substitute_product(self):
         self.ensure_one()
@@ -38,24 +32,26 @@ class SubstituteProductWizard(models.TransientModel):
         if not self.selected_substitute_product_id:
             raise exceptions.UserError(_('No substitute product selected.'))
 
+        original_product = self.sale_order_line_id.product_id
         substitute_product_variant = self.selected_substitute_product_id
         sale_order_line = self.sale_order_line_id
         sale_order = sale_order_line.order_id
 
-        print("Selected substitute product:", substitute_product_variant)  # Debug
+        print("Original product:", original_product)
+        print("Selected substitute product:", substitute_product_variant)
 
         if sale_order_line.is_substituted and sale_order_line.product_id == substitute_product_variant:
             raise exceptions.UserError(_('The selected substitute product is already applied to this line.'))
 
+        # Update the sale order line
         sale_order_line.write({
             'product_id': substitute_product_variant.id,
             'name': substitute_product_variant.display_name,
             'price_unit': substitute_product_variant.lst_price,
             'is_substituted': False
         })
-
         sale_order.write({
-            'original_product_id': sale_order_line.product_id.product_tmpl_id.id,
+            'original_product_id': original_product.product_tmpl_id.id,
             'substitute_product_id': substitute_product_variant.product_tmpl_id.id
         })
 
